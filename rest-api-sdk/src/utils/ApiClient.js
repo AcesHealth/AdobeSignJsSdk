@@ -530,7 +530,7 @@
         } else if (typeof type === 'function') {
           // for model type like: User
           return type.constructFromObject(data);
-        } else if (Array.isArray(type)) {
+        } else if (typeof type === 'array') {
           // for array type like: ['String']
           var itemType = type[0];
           return data.map(function(item) {
