@@ -536,25 +536,25 @@
           return data.map(function(item) {
             return ApiClient.convertToType(item, itemType);
           });
-        } else if (typeof type === 'object') {
-          // for plain object type like: {'String': 'Integer'}
-          var keyType, valueType;
-          for (var k in type) {
-            if (type.hasOwnProperty(k)) {
-              keyType = k;
-              valueType = type[k];
-              break;
-            }
-          }
-          var result = {};
-          for (var k in data) {
-            if (data.hasOwnProperty(k)) {
-              var key = ApiClient.convertToType(k, keyType);
-              var value = ApiClient.convertToType(data[k], valueType);
-              result[key] = value;
-            }
-          }
-          return result;
+        // } else if (typeof type === 'object') {
+        //   // for plain object type like: {'String': 'Integer'}
+        //   var keyType, valueType;
+        //   for (var k in type) {
+        //     if (type.hasOwnProperty(k)) {
+        //       keyType = k;
+        //       valueType = type[k];
+        //       break;
+        //     }
+        //   }
+        //   var result = {};
+        //   for (var k in data) {
+        //     if (data.hasOwnProperty(k)) {
+        //       var key = ApiClient.convertToType(k, keyType);
+        //       var value = ApiClient.convertToType(data[k], valueType);
+        //       result[key] = value;
+        //     }
+        //   }
+        //   return result;
         } else {
           // for unknown type, return the data directly
           return data;
